@@ -1,0 +1,123 @@
+:root {
+    --bg-dark: #0f172a;
+    --primary: #38bdf8;
+    --glass: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Glass Navigation */
+.custom-nav {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* FIX for the cutoff issue in your picture */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 100px; /* Gives space for the fixed navbar */
+    position: relative;
+    z-index: 2; /* Ensures content is above background shapes */
+}
+
+.custom-nav {
+    z-index: 1050; /* Bootstrap standard for sticky/fixed nav */
+}
+
+/* Glass panel for Personal Info */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+/* Education Cards */
+.education-card {
+    background: rgba(99, 102, 241, 0.1);
+    border-left: 4px solid var(--primary);
+    transition: 0.3s;
+}
+
+.education-card:hover {
+    background: rgba(99, 102, 241, 0.2);
+    transform: scale(1.02);
+}
+
+/* Fix for background shapes potentially covering content */
+.bg-shapes {
+    z-index: -1;
+}
+
+/* Ensure the text gradient is compatible as requested */
+.text-gradient {
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+}
+
+
+.shape {
+    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: float 10s infinite alternate;
+}
+
+.shape-1 { width: 300px; height: 300px; background: #38bdf8; top: 10%; left: 10%; }
+.shape-2 { width: 400px; height: 400px; background: #818cf8; bottom: 10%; right: 10%; animation-delay: 2s; }
+
+@keyframes float {
+    from { transform: translate(0, 0); }
+    to { transform: translate(50px, 100px); }
+}
+
+/* Glass Card */
+.hero-glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+/* Skill Progress Line */
+.progress-path {
+    height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;
+}
+.progress-fill {
+    height: 100%; background: var(--primary); box-shadow: 0 0 15px var(--primary);
+}
+
+/* Timeline Path */
+.timeline-wrapper {
+    position: relative; padding: 20px 0;
+}
+.timeline-line {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    width: 2px; height: 100%; background: linear-gradient(transparent, var(--primary), transparent);
+}
+.timeline-card {
+    position: relative; width: 45%; margin-bottom: 30px;
+    padding: 20px; background: var(--glass); border-radius: 15px;
+}
+.timeline-card:nth-child(even) { margin-left: auto; text-align: left; }
+.timeline-card:nth-child(odd) { margin-right: auto; text-align: right; }
+
+.dot {
+    position: absolute; width: 16px; height: 16px; background: var(--primary);
+    border-radius: 50%; top: 20px; box-shadow: 0 0 10px var(--primary);
+}
+.timeline-card:nth-child(even) .dot { left: -58px; }
+.timeline-card:nth-child(odd) .dot { right: -58px; }
+
+@media (max-width: 768px) {
+    .timeline-line { left: 20px; }
+    .timeline-card { width: 90%; margin-left: 40px !important; text-align: left !important; }
+    .timeline-card .dot { left: -28px !important; }
+}
