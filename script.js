@@ -38,5 +38,22 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
+// Function to animate expertise bars on scroll
+const animateSkills = () => {
+    const bars = document.querySelectorAll('.mini-progress .fill');
+    bars.forEach(bar => {
+        const rect = bar.getBoundingClientRect();
+        if(rect.top < window.innerHeight && rect.bottom >= 0) {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = width;
+                bar.style.transition = 'width 1.5s ease-out';
+            }, 100);
+        }
+    });
+}
+
+window.addEventListener('scroll', animateSkills);
 // Refresh AOS to catch new sections
 AOS.refresh();
