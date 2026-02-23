@@ -1,226 +1,292 @@
-:root {
-    --bg-dark: #0f172a;
-    --primary: #38bdf8;
-    --glass: rgba(255, 255, 255, 0.05);
-}
+<!DOCTYPE html>
+<html lang="en">
 
-body {
-    background-color: var(--bg-dark);
-    color: white;
-    overflow-x: hidden;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akash's Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-/* Glass Navigation */
-.custom-nav {
-    background: rgba(13, 18, 31, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
+<body>
 
-/* FIX for the cutoff issue in your picture */
-.hero-section {
-    min-height: 100vh;
-    padding-top: 100px; /* Gives space for the fixed navbar */
-    position: relative;
-    z-index: 2; /* Ensures content is above background shapes */
-}
+    <div class="bg-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
 
-.custom-nav {
-    z-index: 1050; /* Bootstrap standard for sticky/fixed nav */
-}
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm custom-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Mr<span class="text-primary">.</span>Akash</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto text-uppercase">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#expertise">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Journey</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-/* Glass panel for Personal Info */
-.glass-panel {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-}
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-1 fw-bold text-white">Design <span class="text-gradient">Develop</span></h1>
+                    <p class="lead text-white-50 mb-4">I build high-end interactive web applications that bridge the gap
+                        between design and functionality.</p>
+                    <div class="d-flex gap-3">
+                        <button class="btn btn-primary btn-lg rounded-pill px-4">My Work</button>
+                        <!-- <button class="btn btn-outline-light btn-lg rounded-pill px-4">Contact</button> -->
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block" data-aos="zoom-in">
+                    <div class="hero-glass-card">
+                        <pre class="m-0"><code><span class="text-primary">class</span> Developer {
+  constructor() {
+    this.name = "Akash Dey";
+    this.skills = ["Java", "Python", "AWS"];
+  }
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-/* Education Cards */
-/* Glassmorphism Expertise Cards */
-.expertise-card-v2 {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    transition: all 0.4s ease;
-    backdrop-filter: blur(10px);
-}
+    <section id="expertise" class="py-5">
+        <div class="container">
+            <h2 class="text-center text-white mb-5 fw-bold" data-aos="fade-down">Core Expertise</h2>
 
-.expertise-card-v2:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: var(--primary);
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
-}
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-4">
 
-/* Mini Progress Bar under each expertise */
-.mini-progress {
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    margin-top: 15px;
-    overflow: hidden;
-}
+                <div class="col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="expertise-card-v2 p-4 text-center h-100">
+                        <div class="icon-box mb-3">
+                            <i class="bi bi-window-sidebar display-6 text-primary"></i>
+                        </div>
+                        <h5 class="text-white">Frontend</h5>
+                        <p class="text-white-50 small">React, Angular</p>
+                        <div class="mini-progress">
+                            <div class="fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
 
-.mini-progress .fill {
-    height: 100%;
-    background: var(--primary);
-    box-shadow: 0 0 10px var(--primary);
-}
+                <div class="col" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="expertise-card-v2 p-4 text-center h-100">
+                        <div class="icon-box mb-3">
+                            <i class="bi bi-cpu display-6 text-info"></i>
+                        </div>
+                        <h5 class="text-white">Backend</h5>
+                        <p class="text-white-50 small">Java, Python, Node</p>
+                        <div class="mini-progress">
+                            <div class="fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
 
-/* Icon box styling */
-.icon-box i {
-    transition: transform 0.3s ease;
-}
+                <div class="col" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="expertise-card-v2 p-4 text-center h-100">
+                        <div class="icon-box mb-3">
+                            <i class="bi bi-bezier display-6 text-warning"></i>
+                        </div>
+                        <h5 class="text-white">API</h5>
+                        <p class="text-white-50 small">Spring, MicroService</p>
+                        <div class="mini-progress">
+                            <div class="fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                </div>
 
-.expertise-card-v2:hover .icon-box i {
-    transform: scale(1.2);
-}
+                <div class="col" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="expertise-card-v2 p-4 text-center h-100">
+                        <div class="icon-box mb-3">
+                            <i class="bi bi-database-check display-6 text-success"></i>
+                        </div>
+                        <h5 class="text-white">Database</h5>
+                        <p class="text-white-50 small">PostgreSQL, Oracle</p>
+                        <div class="mini-progress">
+                            <div class="fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
 
-/* Fix for background shapes potentially covering content */
-.bg-shapes {
-    z-index: -1;
-}
+                <div class="col" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="expertise-card-v2 p-4 text-center h-100">
+                        <div class="icon-box mb-3">
+                            <i class="bi bi-cloud-haze2 display-6 text-danger"></i>
+                        </div>
+                        <h5 class="text-white">Cloud</h5>
+                        <p class="text-white-50 small">AWS, Docker, CI/CD</p>
+                        <div class="mini-progress">
+                            <div class="fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
 
-/* Ensure the text gradient is compatible as requested */
-.text-gradient {
-    background: linear-gradient(90deg, #6366f1, #a855f7);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent; /* Fallback */
-}
+            </div>
+        </div>
+    </section>
+    <section id="experience" class="py-5">
+        <div class="container">
+            <h2 class="text-center text-white mb-5">Professional Journey</h2>
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+                <div class="timeline-card" data-aos="fade-left">
+                    <div class="dot"></div>
+                    <h4 class="text-primary">IIOT Specialist @LTM</h4>
+                    <span class="text-white-50">2022 - Present</span>
+                    <ul class="text-light mt-3 custom-list">
+                        <li>Develop IIOT application using AWS Cloud, Chalice & Python</li>
+                        <li>Backend designer using Springboot, Microservice</li>
+                        <li>Complex business logic implements and error handling</li>
+                    </ul>
+                </div>
+                <div class="timeline-card" data-aos="fade-right">
+                    <div class="dot"></div>
+                    <h4 class="text-primary">Senior Software Developer @Silvertouch</h4>
+                    <span class="text-white-50">2019 - 2022</span>
+                    <ul class="text-light mt-3 custom-list">
+                        <li>Design and develop web application using SpringBoot for submitting import and export
+                            application of container handling agent</li>
+                        <li>An EIR(Equipment interchange) app developed using SpringBoot for Container movement with
+                            help of Geo-location </li>
+                        <li>Build a mobile based app for Berth & Rake booking using SpringBoot and Oracle database for
+                            Vessel berth allotment. </li>
+                    </ul>
+                </div>
+                <div class="timeline-card" data-aos="fade-left">
+                    <div class="dot"></div>
+                    <h4 class="text-primary">Software Developer @NRI</h4>
+                    <span class="text-white-50">2018 - 2019</span>
+                    <ul class="text-light mt-3 custom-list">
+                        <li>Build a full phase web automation using Katalon framework </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5 mt-5">
+        <div class="container">
+            <div class="glass-panel p-5" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center">
+                        <div class="profile-frame">
+                            <img src="img.JPEG" class="rounded-circle shadow-lg" alt="Profile">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="text-gradient fw-bold">HELLO !!!</h2>
+                        <p class="text-white">As a senior software developer, I’m the bridge between vision and reality
+                            in the digital world. With a mastery of coding languages and knack for problem-solving, I
+                            transform complex ideas into elegant, functional software. Being a software developer more
+                            than 7 years, I am sincerely aware of the importance of delivering the product within time
+                            with proper requirement. </p>
+                        <div class="row mt-3 text-white-50">
+                            <div class="col-6"><i class="bi bi-geo-alt text-primary"></i> Location: Kolkata, India</div>
+                            <div class="col-6"><i class="bi bi-briefcase text-primary"></i> Role: IIOT Specialist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-stack" class="py-5">
+        <div class="container">
+            <h2 class="text-center text-white mb-5">Tech Stack</h2>
+            <div class="row g-4">
+                <div class="col-6 col-lg-3" data-aos="zoom-in">
+                    <div class="tech-card p-4 text-center">
+                        <i class="bi bi-filetype-java display-5 text-primary"></i>
+                        <h5 class="mt-3 text-white">Java</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tech-card p-4 text-center">
+                        <i class="bi bi-node-plus display-5 text-success"></i>
+                        <h5 class="mt-3 text-white">Node.js</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tech-card p-4 text-center">
+                        <i class="bi bi-database display-5 text-warning"></i>
+                        <h5 class="mt-3 text-white">PostgreSQL</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tech-card p-4 text-center">
+                        <i class="bi bi-cloud-arrow-up display-5 text-info"></i>
+                        <h5 class="mt-3 text-white">AWS</h5>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row g-4">
+                <div class="col-6 col-lg-3" data-aos="zoom-in">
+                    <div class="tech-card p-4 text-center">
+                        <i class="bi bi-filetype-json display-5 text-primary"></i>
+                        <h5 class="mt-3 text-white">Microservice</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="tech-card p-4 text-center">
+                        <i class="bi bi-filetype-py display-5 text-success"></i>
+                        <h5 class="mt-3 text-white">Python</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="tech-card p-4 text-center">
+                        <i class="bi bi-database display-5 text-warning"></i>
+                        <h5 class="mt-3 text-white">Oracle</h5>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="tech-card p-4 text-center">
+                        <i class="bi bi-filetype-js display-5 text-info"></i>
+                        <h5 class="mt-3 text-white">JavaScript</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-.shape {
-    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: float 10s infinite alternate;
-}
+    <section id="education" class="py-5">
+        <div class="container">
+            <h2 class="text-center text-white mb-5" data-aos="fade-down">Education</h2>
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="flip-left">
+                    <div class="education-card p-4 h-100">
+                        <span class="badge bg-primary mb-2">2016 - 2018</span>
+                        <h4>MTech in Computer Science</h4>
+                        <p class="text-white-50">Calcutta University</p>
+                        <small>CGP - 8.4/10 </small>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="flip-right">
+                    <div class="education-card p-4 h-100">
+                        <span class="badge bg-primary mb-2">2012-2016</span>
+                        <h4>BTech in Computer Science</h4>
+                        <p class="text-white-50">West Bengal University of Technology </p>
+                        <small>CGP - 8.7/10</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-.shape-1 { width: 300px; height: 300px; background: #38bdf8; top: 10%; left: 10%; }
-.shape-2 { width: 400px; height: 400px; background: #818cf8; bottom: 10%; right: 10%; animation-delay: 2s; }
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
 
-@keyframes float {
-    from { transform: translate(0, 0); }
-    to { transform: translate(50px, 100px); }
-}
-
-/* Glass Card */
-.hero-glass-card {
-    background: var(--glass);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 2rem;
-    border-radius: 20px;
-    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-}
-
-/* Skill Progress Line */
-.progress-path {
-    height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;
-}
-.progress-fill {
-    height: 100%; background: var(--primary); box-shadow: 0 0 15px var(--primary);
-}
-
-/* Timeline Path */
-.timeline-wrapper {
-    position: relative; padding: 20px 0;
-}
-.timeline-line {
-    position: absolute; left: 50%; transform: translateX(-50%);
-    width: 2px; height: 100%; background: linear-gradient(transparent, var(--primary), transparent);
-}
-/* Custom List Styling */
-.custom-list {
-    list-style: none; /* Remove default bullets */
-    padding-left: 0;
-}
-
-.custom-list li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.95rem;
-    line-height: 1.5;
-}
-
-/* Custom Bullet: A small glowing square or dot */
-.custom-list li::before {
-    content: "•"; /* You can also use "•" */
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-size: 0.8rem;
-    text-shadow: 0 0 8px var(--primary);
-}
-
-.navbar-brand{
-    color: #bcd4df;
-}
-.nav-link{
-    color: #bcd4df;
-}
-
-/* Ensure timeline cards don't feel too cramped with lists */
-
-.timeline-card {
-    position: relative; width: 45%; margin-bottom: 30px;
-    padding: 20px; background: var(--glass); border-radius: 15px;
-}
-.timeline-card:nth-child(even) { margin-left: auto; text-align: left; }
-.timeline-card:nth-child(odd) { margin-right: auto; text-align: left; }
-
-.dot {
-    position: absolute; width: 16px; height: 16px; background: var(--primary);
-    border-radius: 50%; top: 20px; box-shadow: 0 0 10px var(--primary);
-}
-.timeline-card:nth-child(even) .dot { left: -58px; }
-.timeline-card:nth-child(odd) .dot { right: -58px; }
-
-@media (max-width: 768px) {
-    .timeline-line { left: 20px; }
-    .timeline-card { width: 90%; margin-left: 40px !important; text-align: left !important; }
-    .timeline-card .dot { left: -28px !important; }
-}
-
-/* Tech Card Styles */
-.tech-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    backdrop-filter: blur(5px);
-}
-
-.tech-card:hover {
-    transform: translateY(-10px) rotateX(10deg);
-    background: rgba(99, 102, 241, 0.1);
-    border-color: var(--primary);
-    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
-}
-
-/* --- Profile Image Resizing & Styling --- */
-.profile-frame img {
-    /* Adjust these two values to change the size */
-    width: 200px; 
-    height: 200px;
-    
-    object-fit: cover; /* Prevents stretching */
-    border: 4px solid var(--primary);
-    padding: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.profile-frame img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(13, 110, 253, 0.5); /* Glow effect on hover */
-}
-
-/* Responsive adjustment for small screens */
-@media (max-width: 768px) {
-    .profile-frame img {
-        width: 150px;
-        height: 150px;
-    }
-}
+</html>
