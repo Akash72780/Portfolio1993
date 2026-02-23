@@ -1,166 +1,226 @@
-<!DOCTYPE html>
-<html lang="en">
+:root {
+    --bg-dark: #0f172a;
+    --primary: #38bdf8;
+    --glass: rgba(255, 255, 255, 0.05);
+}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Interactive Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-</head>
+body {
+    background-color: var(--bg-dark);
+    color: white;
+    overflow-x: hidden;
+}
 
-<body>
+/* Glass Navigation */
+.custom-nav {
+    background: rgba(13, 18, 31, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    <div class="bg-shapes">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-    </div>
+/* FIX for the cutoff issue in your picture */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 100px; /* Gives space for the fixed navbar */
+    position: relative;
+    z-index: 2; /* Ensures content is above background shapes */
+}
 
-    <nav class="navbar navbar-expand-lg fixed-top shadow-sm custom-nav">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">ALEX<span class="text-primary">.</span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="bi bi-list text-white"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-uppercase">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#expertise">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Journey</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+.custom-nav {
+    z-index: 1050; /* Bootstrap standard for sticky/fixed nav */
+}
 
-    <section id="home" class="hero-section d-flex align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-1 fw-bold text-white">Design <span class="text-gradient">Logic</span></h1>
-                    <p class="lead text-white-50 mb-4">I build high-end interactive web applications that bridge the gap
-                        between design and functionality.</p>
-                    <div class="d-flex gap-3">
-                        <button class="btn btn-primary btn-lg rounded-pill px-4">My Work</button>
-                        <button class="btn btn-outline-light btn-lg rounded-pill px-4">Contact</button>
-                    </div>
-                </div>
-                <div class="col-lg-6 d-none d-lg-block" data-aos="zoom-in">
-                    <div class="hero-glass-card">
-                        <pre class="m-0"><code><span class="text-primary">class</span> Developer {
-  constructor() {
-    this.name = "Alex Doe";
-    this.skills = ["React", "Node", "AWS"];
-  }
-}</code></pre>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Glass panel for Personal Info */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
 
-    <section id="expertise" class="py-5 mt-5">
-        <div class="container">
-            <h2 class="text-center text-white mb-5" data-aos="fade-up">Core Expertise</h2>
-            <div class="row g-4">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="skill-box p-4">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-white">Frontend Architecture</span>
-                            <span class="text-primary">95%</span>
-                        </div>
-                        <div class="progress-path">
-                            <div class="progress-fill" style="width: 95%"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="skill-box p-4">
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-white">Backend Systems</span>
-                            <span class="text-primary">88%</span>
-                        </div>
-                        <div class="progress-path">
-                            <div class="progress-fill" style="width: 88%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Education Cards */
+/* Glassmorphism Expertise Cards */
+.expertise-card-v2 {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
 
-    <section id="experience" class="py-5">
-        <div class="container">
-            <h2 class="text-center text-white mb-5">Professional Journey</h2>
-            <div class="timeline-wrapper">
-                <div class="timeline-line"></div>
-                <div class="timeline-card" data-aos="fade-left">
-                    <div class="dot"></div>
-                    <h4 class="text-primary">Lead Developer @ TechHub</h4>
-                    <span class="text-white-50">2023 - Present</span>
-                    <p class="text-light mt-2">Spearheading digital transformation using Next.js and Micro-services.</p>
-                </div>
-                <div class="timeline-card" data-aos="fade-right">
-                    <div class="dot"></div>
-                    <h4 class="text-primary">Junior Architect @ WebFlow</h4>
-                    <span class="text-white-50">2021 - 2023</span>
-                    <p class="text-light mt-2">Designed and implemented scalable UI kits and design systems.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+.expertise-card-v2:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--primary);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
 
-    <section id="about" class="py-5">
-        <div class="container">
-            <div class="row align-items-center glass-panel p-5" data-aos="fade-up">
-                <div class="col-md-4 text-center">
-                    <div class="profile-img-wrapper">
-                        <img src="https://via.placeholder.com/200" alt="Profile"
-                            class="rounded-circle img-fluid border border-primary border-4">
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <h2 class="text-primary">Personal Information</h2>
-                    <p class="lead text-white">I am a passionate developer based in [Your City]. With over 5 years of
-                        experience, I specialize in building human-centric digital products.</p>
-                    <ul class="list-unstyled text-white-50">
-                        <li><i class="bi bi-envelope-fill me-2"></i> email@example.com</li>
-                        <li><i class="bi bi-geo-alt-fill me-2"></i> City, Country</li>
-                        <li><i class="bi bi-link-45deg me-2"></i> linkedin.com/in/yourname</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+/* Mini Progress Bar under each expertise */
+.mini-progress {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 15px;
+    overflow: hidden;
+}
 
-    <section id="education" class="py-5">
-        <div class="container">
-            <h2 class="text-center text-white mb-5" data-aos="fade-down">Education</h2>
-            <div class="row g-4">
-                <div class="col-md-6" data-aos="flip-left">
-                    <div class="education-card p-4 h-100">
-                        <span class="badge bg-primary mb-2">2017 - 2021</span>
-                        <h4>B.Sc. in Computer Science</h4>
-                        <p class="text-white-50">University of Technology</p>
-                        <small>Focused on Algorithms, Web Systems, and AI.</small>
-                    </div>
-                </div>
-                <div class="col-md-6" data-aos="flip-right">
-                    <div class="education-card p-4 h-100">
-                        <span class="badge bg-primary mb-2">2022</span>
-                        <h4>Full Stack Certification</h4>
-                        <p class="text-white-50">Code Academy Global</p>
-                        <small>Advanced MERN Stack development and Cloud deployment.</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+.mini-progress .fill {
+    height: 100%;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
-</body>
+/* Icon box styling */
+.icon-box i {
+    transition: transform 0.3s ease;
+}
 
-</html>
+.expertise-card-v2:hover .icon-box i {
+    transform: scale(1.2);
+}
+
+/* Fix for background shapes potentially covering content */
+.bg-shapes {
+    z-index: -1;
+}
+
+/* Ensure the text gradient is compatible as requested */
+.text-gradient {
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Fallback */
+}
+
+
+.shape {
+    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: float 10s infinite alternate;
+}
+
+.shape-1 { width: 300px; height: 300px; background: #38bdf8; top: 10%; left: 10%; }
+.shape-2 { width: 400px; height: 400px; background: #818cf8; bottom: 10%; right: 10%; animation-delay: 2s; }
+
+@keyframes float {
+    from { transform: translate(0, 0); }
+    to { transform: translate(50px, 100px); }
+}
+
+/* Glass Card */
+.hero-glass-card {
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+}
+
+/* Skill Progress Line */
+.progress-path {
+    height: 8px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden;
+}
+.progress-fill {
+    height: 100%; background: var(--primary); box-shadow: 0 0 15px var(--primary);
+}
+
+/* Timeline Path */
+.timeline-wrapper {
+    position: relative; padding: 20px 0;
+}
+.timeline-line {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    width: 2px; height: 100%; background: linear-gradient(transparent, var(--primary), transparent);
+}
+/* Custom List Styling */
+.custom-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Custom Bullet: A small glowing square or dot */
+.custom-list li::before {
+    content: "•"; /* You can also use "•" */
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 0.8rem;
+    text-shadow: 0 0 8px var(--primary);
+}
+
+.navbar-brand{
+    color: #bcd4df;
+}
+.nav-link{
+    color: #bcd4df;
+}
+
+/* Ensure timeline cards don't feel too cramped with lists */
+
+.timeline-card {
+    position: relative; width: 45%; margin-bottom: 30px;
+    padding: 20px; background: var(--glass); border-radius: 15px;
+}
+.timeline-card:nth-child(even) { margin-left: auto; text-align: left; }
+.timeline-card:nth-child(odd) { margin-right: auto; text-align: left; }
+
+.dot {
+    position: absolute; width: 16px; height: 16px; background: var(--primary);
+    border-radius: 50%; top: 20px; box-shadow: 0 0 10px var(--primary);
+}
+.timeline-card:nth-child(even) .dot { left: -58px; }
+.timeline-card:nth-child(odd) .dot { right: -58px; }
+
+@media (max-width: 768px) {
+    .timeline-line { left: 20px; }
+    .timeline-card { width: 90%; margin-left: 40px !important; text-align: left !important; }
+    .timeline-card .dot { left: -28px !important; }
+}
+
+/* Tech Card Styles */
+.tech-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(5px);
+}
+
+.tech-card:hover {
+    transform: translateY(-10px) rotateX(10deg);
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
+}
+
+/* --- Profile Image Resizing & Styling --- */
+.profile-frame img {
+    /* Adjust these two values to change the size */
+    width: 200px; 
+    height: 200px;
+    
+    object-fit: cover; /* Prevents stretching */
+    border: 4px solid var(--primary);
+    padding: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-frame img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(13, 110, 253, 0.5); /* Glow effect on hover */
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+    .profile-frame img {
+        width: 150px;
+        height: 150px;
+    }
+}
