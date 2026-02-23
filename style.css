@@ -12,7 +12,7 @@ body {
 
 /* Glass Navigation */
 .custom-nav {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(13, 18, 31, 0.8);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -38,15 +38,44 @@ body {
 }
 
 /* Education Cards */
-.education-card {
-    background: rgba(99, 102, 241, 0.1);
-    border-left: 4px solid var(--primary);
-    transition: 0.3s;
+/* Glassmorphism Expertise Cards */
+.expertise-card-v2 {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
 }
 
-.education-card:hover {
-    background: rgba(99, 102, 241, 0.2);
-    transform: scale(1.02);
+.expertise-card-v2:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--primary);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+}
+
+/* Mini Progress Bar under each expertise */
+.mini-progress {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+.mini-progress .fill {
+    height: 100%;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+/* Icon box styling */
+.icon-box i {
+    transition: transform 0.3s ease;
+}
+
+.expertise-card-v2:hover .icon-box i {
+    transform: scale(1.2);
 }
 
 /* Fix for background shapes potentially covering content */
@@ -102,12 +131,45 @@ body {
     position: absolute; left: 50%; transform: translateX(-50%);
     width: 2px; height: 100%; background: linear-gradient(transparent, var(--primary), transparent);
 }
+/* Custom List Styling */
+.custom-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.custom-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Custom Bullet: A small glowing square or dot */
+.custom-list li::before {
+    content: "•"; /* You can also use "•" */
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-size: 0.8rem;
+    text-shadow: 0 0 8px var(--primary);
+}
+
+.navbar-brand{
+    color: #bcd4df;
+}
+.nav-link{
+    color: #bcd4df;
+}
+
+/* Ensure timeline cards don't feel too cramped with lists */
+
 .timeline-card {
     position: relative; width: 45%; margin-bottom: 30px;
     padding: 20px; background: var(--glass); border-radius: 15px;
 }
 .timeline-card:nth-child(even) { margin-left: auto; text-align: left; }
-.timeline-card:nth-child(odd) { margin-right: auto; text-align: right; }
+.timeline-card:nth-child(odd) { margin-right: auto; text-align: left; }
 
 .dot {
     position: absolute; width: 16px; height: 16px; background: var(--primary);
@@ -120,4 +182,45 @@ body {
     .timeline-line { left: 20px; }
     .timeline-card { width: 90%; margin-left: 40px !important; text-align: left !important; }
     .timeline-card .dot { left: -28px !important; }
+}
+
+/* Tech Card Styles */
+.tech-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(5px);
+}
+
+.tech-card:hover {
+    transform: translateY(-10px) rotateX(10deg);
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--primary);
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.2);
+}
+
+/* --- Profile Image Resizing & Styling --- */
+.profile-frame img {
+    /* Adjust these two values to change the size */
+    width: 200px; 
+    height: 200px;
+    
+    object-fit: cover; /* Prevents stretching */
+    border: 4px solid var(--primary);
+    padding: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-frame img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(13, 110, 253, 0.5); /* Glow effect on hover */
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+    .profile-frame img {
+        width: 150px;
+        height: 150px;
+    }
 }
